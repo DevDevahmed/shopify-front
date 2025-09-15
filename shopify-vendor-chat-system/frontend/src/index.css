@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.chat-container {
+  height: 400px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.message {
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.message.sent {
+  background-color: #007bff;
+  color: white;
+  text-align: right;
+  margin-left: 20%;
+}
+
+.message.received {
+  background-color: #f1f1f1;
+  color: black;
+  margin-right: 20%;
+}
+
+.customer-list {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.customer-item {
+  cursor: pointer;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.customer-item:hover {
+  background-color: #f8f9fa;
+}
+
+.customer-item.active {
+  background-color: #e3f2fd;
+  border-left: 4px solid #2196f3;
+}
