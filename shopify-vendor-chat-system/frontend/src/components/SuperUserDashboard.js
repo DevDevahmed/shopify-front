@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+// Temporary fix: Use deployed backend URL
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'https://shopify-chat-nine.vercel.app';
+
 const SuperUserDashboard = () => {
   const [file, setFile] = useState(null);
   const [message, setMessage] = useState('');
@@ -19,7 +22,7 @@ const SuperUserDashboard = () => {
 
   const loadVendors = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/vendors`);
+      const response = await fetch(`${BACKEND_URL}/api/vendors`);
       const data = await response.json();
       setVendors(data.vendors || []);
     } catch (error) {
@@ -29,7 +32,7 @@ const SuperUserDashboard = () => {
 
   const loadAllCustomers = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/customers`);
+      const response = await fetch(`${BACKEND_URL}/api/customers`);
       const data = await response.json();
       setCustomers(data.customers || []);
     } catch (error) {
@@ -39,7 +42,7 @@ const SuperUserDashboard = () => {
 
   const loadAssignments = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/customer-vendor-assignments`);
+      const response = await fetch(`${BACKEND_URL}/api/customer-vendor-assignments`);
       const data = await response.json();
       setAssignments(data.assignments || {});
     } catch (error) {
@@ -95,7 +98,7 @@ const SuperUserDashboard = () => {
     }
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/assign-customer-to-vendor`, {
+      const response = await fetch(`${BACKEND_URL}/api/assign-customer-to-vendor`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
